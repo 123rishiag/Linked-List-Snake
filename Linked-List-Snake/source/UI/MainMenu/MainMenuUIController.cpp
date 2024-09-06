@@ -64,6 +64,11 @@ namespace UI
             quit_button->setCentreAlinged();
         }
 
+        void calculateLeftOffsetForButton()
+        {
+
+        }
+
         void MainMenuUIController::registerButtonCallback()
         {
             play_button->registerCallbackFuntion(std::bind(&MainMenuUIController::playButtonCallback, this));
@@ -74,7 +79,7 @@ namespace UI
         void MainMenuUIController::playButtonCallback()
         {
             ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-            GameService::setGameState(GameState::GAMEPLAY);
+            GameService::setGameState(GameState::LEVEL_SELECTION);
         }
 
         void MainMenuUIController::instructionsButtonCallback()
