@@ -141,6 +141,7 @@
     <ClCompile Include="source\Time\TimeService.cpp" />
     <ClCompile Include="source\UI\Credits\CreditsScreenUIController.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsScreenUIController.cpp" />
+    <ClCompile Include="source\UI\LevelSelection\LevelSelectionUIController.cpp" />
     <ClCompile Include="source\UI\UIElement\AnimatedImageView.cpp" />
     <ClCompile Include="source\UI\UIElement\ButtonView.cpp" />
     <ClCompile Include="source\Global\Config.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="header\Time\TimeService.h" />
     <ClInclude Include="header\UI\Credits\CreditsScreenUIController.h" />
     <ClInclude Include="header\UI\Instructions\InstructionsScreenUIController.h" />
+    <ClInclude Include="header\UI\LevelSelection\LevelSelectionUIController.h" />
     <ClInclude Include="header\UI\UIElement\AnimatedImageView.h" />
     <ClInclude Include="header\UI\UIElement\ButtonView.h" />
     <ClInclude Include="header\Global\Config.h" />

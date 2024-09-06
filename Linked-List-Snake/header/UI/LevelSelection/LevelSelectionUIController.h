@@ -6,43 +6,42 @@
 
 namespace UI
 {
-	namespace MainMenu
+	namespace LevelSelection
 	{
-		class MainMenuUIController : public Interface::IUIController
+		class LevelSelectionUIController : public Interface::IUIController
 		{
 		private:
 			// Constants:
 			const float button_width = 400.f;
 			const float button_height = 140.f;
 
-			const float play_button_y_position = 500.f;
-			const float instructions_button_y_position = 700.f;
-			const float quit_button_y_position = 900.f;
+			const float level_one_button_y_position = 500.f;
+			const float level_two_button_y_position = 700.f;
+			const float menu_button_y_position = 900.f;
 
 			const float background_alpha = 85.f;
 
-			UIElement::ImageView* background_image;
+			UI::UIElement::ImageView* background_image;
 
-			UIElement::ButtonView* play_button;
-			UIElement::ButtonView* instructions_button;
-			UIElement::ButtonView* quit_button;
+			UI::UIElement::ButtonView* level_one_button;
+			UI::UIElement::ButtonView* level_two_button;
+			UI::UIElement::ButtonView* menu_button;
 
 			void createImage();
 			void createButtons();
 			void initializeBackgroundImage();
-			void initializeButtons();
 			void calculateLeftOffsetForButton();
 			void registerButtonCallback();
 
-			void playButtonCallback();
-			void instructionsButtonCallback();
-			void quitButtonCallback();
+			void singleLinkedListButtonCallback();
+			void doubleLinkedListButtonCallback();
+			void menuButtonCallback();
 
 			void destroy();
 
 		public:
-			MainMenuUIController();
-			~MainMenuUIController();
+			LevelSelectionUIController();
+			~LevelSelectionUIController();
 
 			void initialize() override;
 			void update() override;
