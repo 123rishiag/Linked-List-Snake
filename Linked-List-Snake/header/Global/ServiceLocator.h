@@ -1,20 +1,22 @@
 #pragma once
 #include "../header/Graphics/GraphicService.h"
 #include "../header/Event/EventService.h"
-#include "../header/UI/UIService.h"
-#include "../header/Sound/SoundService.h"
 #include "../header/Time/TimeService.h"
+#include "../header/Level/LevelService.h"
+#include "../header/Sound/SoundService.h"
+#include "../header/UI/UIService.h"
 
 namespace Global
 {
     class ServiceLocator
     {
     private:
-        Event::EventService* event_service;
         Graphics::GraphicService* graphic_service;
+        Event::EventService* event_service;
+        Time::TimeService* time_service;
+        Level::LevelService* level_service;
         Sound::SoundService* sound_service;
         UI::UIService* ui_service;
-        Time::TimeService* time_service;
 
         ServiceLocator();
         ~ServiceLocator();
@@ -29,11 +31,13 @@ namespace Global
         void update();
         void render();
 
-        Event::EventService* getEventService();
         Graphics::GraphicService* getGraphicService();
+        Event::EventService* getEventService();
+        Time::TimeService* getTimeService();
+        Level::LevelService* getLevelService();
         Sound::SoundService* getSoundService();
         UI::UIService* getUIService();
-        Time::TimeService* getTimeService();
+
         void deleteServiceLocator();
     };
 }
