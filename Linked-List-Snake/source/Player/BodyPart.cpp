@@ -76,12 +76,12 @@ namespace Player
 
 	sf::Vector2i BodyPart::getNextPositionUp() const
 	{
-		return sf::Vector2i(grid_position.x, grid_position.y + 1);
+		return sf::Vector2i(grid_position.x, grid_position.y - 1);
 	}
 
 	sf::Vector2i BodyPart::getNextPositionDown() const
 	{
-		return sf::Vector2i(grid_position.x, grid_position.y - 1);
+		return sf::Vector2i(grid_position.x, grid_position.y + 1);
 	}
 
 	sf::Vector2i BodyPart::getNextPositionLeft() const
