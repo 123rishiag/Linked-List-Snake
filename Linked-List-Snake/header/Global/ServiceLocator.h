@@ -3,6 +3,7 @@
 #include "../header/Event/EventService.h"
 #include "../header/Time/TimeService.h"
 #include "../header/Level/LevelService.h"
+#include "../header/Player/PlayerService.h"
 #include "../header/Sound/SoundService.h"
 #include "../header/UI/UIService.h"
 
@@ -15,6 +16,7 @@ namespace Global
         Event::EventService* event_service;
         Time::TimeService* time_service;
         Level::LevelService* level_service;
+        Player::PlayerService* player_service;
         Sound::SoundService* sound_service;
         UI::UIService* ui_service;
 
@@ -35,6 +37,7 @@ namespace Global
         Event::EventService* getEventService();
         Time::TimeService* getTimeService();
         Level::LevelService* getLevelService();
+        Player::PlayerService* getPlayerService();
         Sound::SoundService* getSoundService();
         UI::UIService* getUIService();
 

@@ -7,6 +7,7 @@ namespace Global
 	using namespace Event;
 	using namespace Time;
 	using namespace Level;
+	using namespace Player;
 	using namespace Sound;
 	using namespace UI;
 	using namespace Main;
@@ -17,6 +18,7 @@ namespace Global
 		event_service = nullptr;
 		time_service = nullptr;
 		level_service = nullptr;
+		player_service = nullptr;
 		sound_service = nullptr;
 		ui_service = nullptr;
 
@@ -31,6 +33,7 @@ namespace Global
 		event_service = new EventService();
 		time_service = new TimeService();
 		level_service = new LevelService();
+		player_service = new PlayerService();
 		sound_service = new SoundService();
 		ui_service = new UIService();
 	}
@@ -41,6 +44,7 @@ namespace Global
 		event_service->initialize();
 		time_service->initialize();
 		level_service->initialize();
+		player_service->initialize();
 		sound_service->initialize();
 		ui_service->initialize();
 	}
@@ -53,6 +57,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->update();
+			player_service->update();
 		}
 		// sound_service no update
 		ui_service->update();
@@ -66,6 +71,7 @@ namespace Global
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->render();
+			player_service->render();
 		}
 		// sound_service no render
 		ui_service->render();
@@ -77,6 +83,7 @@ namespace Global
 		delete(event_service);
 		delete(time_service);
 		delete(level_service);
+		delete(player_service);
 		delete(sound_service);
 		delete(ui_service);
 	}
@@ -91,6 +98,7 @@ namespace Global
 	EventService* ServiceLocator::getEventService() { return event_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
 	LevelService* ServiceLocator::getLevelService() { return level_service; }
+	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	SoundService* ServiceLocator::getSoundService() { return sound_service; }
 	UIService* ServiceLocator::getUIService() { return ui_service; }
 
