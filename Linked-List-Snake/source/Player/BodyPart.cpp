@@ -74,9 +74,59 @@ namespace Player
 		}
 	}
 
+	sf::Vector2i BodyPart::getNextPositionUp() const
+	{
+		return sf::Vector2i(grid_position.x, grid_position.y + 1);
+	}
+
+	sf::Vector2i BodyPart::getNextPositionDown() const
+	{
+		return sf::Vector2i(grid_position.x, grid_position.y - 1);
+	}
+
+	sf::Vector2i BodyPart::getNextPositionLeft() const
+	{
+		return sf::Vector2i(grid_position.x - 1, grid_position.y);
+	}
+
+	sf::Vector2i BodyPart::getNextPositionRight() const
+	{
+		return sf::Vector2i(grid_position.x + 1, grid_position.y);
+	}
+
+	Direction BodyPart::getDirection() const
+	{
+		return direction;
+	}
+
 	void BodyPart::setDirection(Direction dir)
 	{
 		direction = dir;
+	}
+
+	sf::Vector2i BodyPart::getPosition() const
+	{
+		return grid_position;
+	}
+
+	void BodyPart::setPosition(sf::Vector2i position)
+	{
+		grid_position = position;
+	}
+
+	sf::Vector2i BodyPart::getNextPosition() const
+	{
+		switch (direction)
+		{
+		case Direction::UP:
+			return getNextPositionUp();
+		case Direction::DOWN:
+			return getNextPositionDown();
+		case Direction::LEFT:
+			return getNextPositionLeft();
+		case Direction::RIGHT:
+			return getNextPositionRight();
+		}
 	}
 
 	void BodyPart::destroy()
