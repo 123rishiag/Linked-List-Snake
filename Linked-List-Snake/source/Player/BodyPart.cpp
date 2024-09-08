@@ -1,5 +1,6 @@
 #include "../header/Player/BodyPart.h"
 #include "../header/Level/LevelView.h"
+#include "../header/Level/LevelModel.h"
 #include "../header/Global/Config.h"
 
 namespace Player
@@ -79,22 +80,22 @@ namespace Player
 
 	sf::Vector2i BodyPart::getNextPositionUp() const
 	{
-		return sf::Vector2i(grid_position.x, grid_position.y - 1);
+		return sf::Vector2i(grid_position.x, (grid_position.y - 1 + (LevelModel::number_of_rows)) % (LevelModel::number_of_rows));
 	}
 
 	sf::Vector2i BodyPart::getNextPositionDown() const
 	{
-		return sf::Vector2i(grid_position.x, grid_position.y + 1);
+		return sf::Vector2i(grid_position.x, (grid_position.y + 1) % (LevelModel::number_of_rows));
 	}
 
 	sf::Vector2i BodyPart::getNextPositionLeft() const
 	{
-		return sf::Vector2i(grid_position.x - 1, grid_position.y);
+		return sf::Vector2i((grid_position.x - 1 + LevelModel::number_of_columns) % (LevelModel::number_of_columns), grid_position.y);
 	}
 
 	sf::Vector2i BodyPart::getNextPositionRight() const
 	{
-		return sf::Vector2i(grid_position.x + 1, grid_position.y);
+		return sf::Vector2i((grid_position.x + 1) % (LevelModel::number_of_columns), grid_position.y);
 	}
 
 	Direction BodyPart::getDirection() const
