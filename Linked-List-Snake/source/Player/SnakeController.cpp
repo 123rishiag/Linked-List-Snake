@@ -1,9 +1,11 @@
 #include "../header/Player/SnakeController.h"
 #include "../header/Global/ServiceLocator.h"
+#include "../header/Event/EventService.h"
 
 namespace Player
 {
 	using namespace Global;
+	using namespace Event;
 	using namespace LinkedList;
 
 	SnakeController::SnakeController() 
@@ -26,6 +28,8 @@ namespace Player
 	{ 
 		float width = ServiceLocator::getInstance()->getLevelService()->getCellWidth();
 		float height = ServiceLocator::getInstance()->getLevelService()->getCellHeight();
+
+		reset();
 
 		single_linked_list->initialize(width, height, default_position, default_direction);
 	}
@@ -52,11 +56,37 @@ namespace Player
 		single_linked_list->render();
 	}
 
-	void SnakeController::processPlayerInput() { }
+	void SnakeController::processPlayerInput() 
+	{
+		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-	void SnakeController::updateSnakeDirection() { }
+		if (event_service->pressedUpArrowKey() && current_snake_direction != Direction::DOWN)
+		{
+			current_snake_direction = Direction::UP;
+		}
+		else if (event_service->pressedDownArrowKey() && current_snake_direction != Direction::UP)
+		{
+			current_snake_direction = Direction::DOWN;
+		}
+		else if (event_service->pressedLeftArrowKey() && current_snake_direction != Direction::RIGHT)
+		{
+			current_snake_direction = Direction::LEFT;
+		}
+		else if (event_service->pressedRightArrowKey() && current_snake_direction != Direction::LEFT)
+		{
+			current_snake_direction = Direction::RIGHT;
+		}
+	}
 
-	void SnakeController::moveSnake() { }
+	void SnakeController::updateSnakeDirection() 
+	{ 
+		single_linked_list->updateNodeDirection(current_snake_direction);
+	}
+
+	void SnakeController::moveSnake() 
+	{ 
+		single_linked_list->updateNodePosition();
+	}
 
 	void SnakeController::processSnakeCollision() { }
 
@@ -83,7 +113,11 @@ namespace Player
 		current_snake_state = state;
 	}
 
-	void SnakeController::reset() { }
+	void SnakeController::reset() 
+	{
+		current_snake_state = SnakeState::ALIVE;
+		current_snake_direction = default_direction;
+	}
 
 	void SnakeController::destroy() 
 	{ 
