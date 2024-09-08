@@ -41,7 +41,26 @@ namespace LinkedList
 
 	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node) const
 	{
-		return reference_node->body_part.getNextPosition();
+		Direction reference_direction = reference_node->body_part.getDirection();
+		sf::Vector2i reference_position = reference_node->body_part.getPosition();
+
+		switch (reference_direction)
+		{
+		case Direction::UP:
+			return sf::Vector2i(reference_position.x, reference_position.y - 1);
+			break;
+		case Direction::DOWN:
+			return sf::Vector2i(reference_position.x, reference_position.y + 1);
+			break;
+		case Direction::LEFT:
+			return sf::Vector2i(reference_position.x + 1, reference_position.y);
+			break;
+		case Direction::RIGHT:
+			return sf::Vector2i(reference_position.x - 1, reference_position.y);
+			break;
+		}
+
+		return default_position;
 	}
 
 	void SingleLinkedList::insertNodeAtTail() 

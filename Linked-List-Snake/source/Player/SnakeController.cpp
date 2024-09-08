@@ -90,7 +90,8 @@ namespace Player
 			elapsed_duration = 0.f;
 			updateSnakeDirection();
 			processSnakeCollision();
-			moveSnake();
+			if (current_snake_state != SnakeState::DEAD)
+				moveSnake();
 		}
 	}
 
