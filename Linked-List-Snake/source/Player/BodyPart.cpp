@@ -37,10 +37,13 @@ namespace Player
 	void BodyPart::inititalizeBodyPartImage()
 	{
 		bodypart_image->initialize(Config::snake_body_texture_path, bodypart_width, bodypart_height, getBodyPartScreenPosition());
+		bodypart_image->setOriginAtCentre();
 	}
 
 	void BodyPart::updatePosition() 
 	{ 
+		grid_position = getNextPosition();
+
 		bodypart_image->setPosition(getBodyPartScreenPosition());
 		bodypart_image->setRotation(getRotationAngle());
 		bodypart_image->update();
@@ -126,6 +129,8 @@ namespace Player
 			return getNextPositionLeft();
 		case Direction::RIGHT:
 			return getNextPositionRight();
+		default:
+			return grid_position;
 		}
 	}
 

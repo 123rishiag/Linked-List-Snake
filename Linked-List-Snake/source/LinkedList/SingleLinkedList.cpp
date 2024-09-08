@@ -41,28 +41,7 @@ namespace LinkedList
 
 	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node) const
 	{
-		// Extract direction and position for new node calculation
-		Direction reference_direction = reference_node->body_part.getDirection();
-		sf::Vector2i reference_position = reference_node->body_part.getPosition();
-
-		// Calculate new position based on reference node's direction
-		switch (reference_direction)
-		{
-		case Direction::UP:
-			return sf::Vector2i(reference_position.x, reference_position.y - 1);     //Decreases the y-coordinate by 1 (moves up)
-			break;
-		case Direction::DOWN:
-			return sf::Vector2i(reference_position.x, reference_position.y + 1);     //Increases the y-coordinate by 1 (moves down)
-			break;
-		case Direction::LEFT:
-			return sf::Vector2i(reference_position.x + 1, reference_position.y);    //Increases the x-coordinate by 1 (moves left).
-			break;
-		case Direction::RIGHT:
-			return sf::Vector2i(reference_position.x - 1, reference_position.y);  //Decreases the x-coordinate by 1 (moves right).
-			break;
-		}
-
-		return default_position;
+		return reference_node->body_part.getNextPosition();
 	}
 
 	void SingleLinkedList::insertNodeAtTail() 
@@ -86,4 +65,27 @@ namespace LinkedList
 		new_node->body_part.initialize(node_width, node_height, getNewNodePosition(cur_node), cur_node->body_part.getDirection());
 	}
 
+	void SingleLinkedList::updateNodeDirection(Direction direction_to_set)
+	{
+		Node* cur_node = head_node;
+
+		while (cur_node != nullptr)
+		{
+			Direction previous_direction = cur_node->body_part.getDirection();
+			cur_node->body_part.setDirection(direction_to_set);
+			direction_to_set = previous_direction;
+			cur_node = cur_node->next;
+		}
+	}
+
+	void SingleLinkedList::updateNodePosition()
+	{
+		Node* cur_node = head_node;
+
+		while (cur_node != nullptr)
+		{
+			cur_node->body_part.updatePosition();
+			cur_node = cur_node->next;
+		}
+	}
 }

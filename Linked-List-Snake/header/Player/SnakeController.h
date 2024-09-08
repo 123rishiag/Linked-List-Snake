@@ -1,6 +1,5 @@
 #pragma once
 #include<SFML/Graphics.hpp>
-#include "../header/Player/Direction.h"
 #include "../header/LinkedList/SingleLinkedList.h"
 
 namespace Player
