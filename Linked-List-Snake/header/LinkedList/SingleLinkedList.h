@@ -15,12 +15,15 @@ namespace LinkedList
 		sf::Vector2i default_position;
 		Player::Direction default_direction;
 
-		Node* createNode();
+		Node* createNode() const;
 
 	public:
 		SingleLinkedList();
 		~SingleLinkedList();
+
 		void initialize(float width, float height, sf::Vector2i position, Player::Direction direction);
 		void render();
+
+		void createHeadNode();
 	};
 }

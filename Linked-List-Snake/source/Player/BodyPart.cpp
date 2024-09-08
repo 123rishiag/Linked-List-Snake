@@ -36,7 +36,7 @@ namespace Player
 
 	void BodyPart::inititalizeBodyPartImage()
 	{
-		bodypart_image->initialize(Config::snake_body_texture_path, bodypart_width, bodypart_height, sf::Vector2f(0, 0));
+		bodypart_image->initialize(Config::snake_body_texture_path, bodypart_width, bodypart_height, getBodyPartScreenPosition());
 	}
 
 	void BodyPart::updatePosition() 

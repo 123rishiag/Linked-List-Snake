@@ -43,6 +43,16 @@ namespace Level
 		spawnPlayer();
 	}
 
+	float LevelService::getCellWidth() const
+	{
+		return level_controller->getCellWidth();
+	}
+
+	float LevelService::getCellHeight() const
+	{
+		return level_controller->getCellHeight();
+	}
+
 	void LevelService::destroy()
 	{
 		delete(level_controller);

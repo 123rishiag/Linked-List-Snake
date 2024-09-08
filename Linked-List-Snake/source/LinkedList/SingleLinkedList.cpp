@@ -22,11 +22,21 @@ namespace LinkedList
 		default_direction = direction;
 	}
 
-	void SingleLinkedList::render() { }
+	void SingleLinkedList::render() 
+	{ 
+		head_node->body_part.render();
+	}
 
-	Node* SingleLinkedList::createNode()
+	Node* SingleLinkedList::createNode() const
 	{
 		return new Node();
+	}
+
+	void SingleLinkedList::createHeadNode()
+	{
+		head_node = createNode();
+		head_node->body_part.initialize(node_width, node_height, default_position, default_direction);
+		return;
 	}
 
 }
