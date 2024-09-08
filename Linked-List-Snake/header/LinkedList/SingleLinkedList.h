@@ -15,6 +15,7 @@ namespace LinkedList
 		sf::Vector2i default_position;
 		Player::Direction default_direction;
 
+		sf::Vector2i getNewNodePosition(Node* reference_node) const;
 		Node* createNode() const;
 
 	public:
@@ -24,6 +25,6 @@ namespace LinkedList
 		void initialize(float width, float height, sf::Vector2i position, Player::Direction direction);
 		void render();
 
-		void createHeadNode();
+		void insertNodeAtTail();
 	};
 }
