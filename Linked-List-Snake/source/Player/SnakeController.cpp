@@ -40,9 +40,7 @@ namespace Player
 		{
 		case SnakeState::ALIVE:
 			processPlayerInput();
-			updateSnakeDirection();
-			processSnakeCollision();
-			moveSnake();
+			delayedUpdate();
 			break;
 
 		case SnakeState::DEAD:
@@ -83,6 +81,19 @@ namespace Player
 		single_linked_list->updateNodeDirection(current_snake_direction);
 	}
 
+	void SnakeController::delayedUpdate()
+	{
+		elapsed_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+		if (elapsed_duration >= movement_frame_duration)
+		{
+			elapsed_duration = 0.f;
+			updateSnakeDirection();
+			processSnakeCollision();
+			moveSnake();
+		}
+	}
+
 	void SnakeController::moveSnake() 
 	{ 
 		single_linked_list->updateNodePosition();
@@ -117,6 +128,7 @@ namespace Player
 	{
 		current_snake_state = SnakeState::ALIVE;
 		current_snake_direction = default_direction;
+		elapsed_duration = 0.f;
 	}
 
 	void SnakeController::destroy() 
