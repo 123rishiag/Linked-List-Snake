@@ -2,6 +2,7 @@
 #include "../header/Graphics/GraphicService.h"
 #include "../header/Event/EventService.h"
 #include "../header/Time/TimeService.h"
+#include "../header/Element/ElementService.h"
 #include "../header/Level/LevelService.h"
 #include "../header/Player/PlayerService.h"
 #include "../header/Sound/SoundService.h"
@@ -15,6 +16,7 @@ namespace Global
         Graphics::GraphicService* graphic_service;
         Event::EventService* event_service;
         Time::TimeService* time_service;
+        Element::ElementService* element_service;
         Level::LevelService* level_service;
         Player::PlayerService* player_service;
         Sound::SoundService* sound_service;
@@ -36,6 +38,7 @@ namespace Global
         Graphics::GraphicService* getGraphicService();
         Event::EventService* getEventService();
         Time::TimeService* getTimeService();
+        Element::ElementService* getElementService();
         Level::LevelService* getLevelService();
         Player::PlayerService* getPlayerService();
         Sound::SoundService* getSoundService();
