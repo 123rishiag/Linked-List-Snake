@@ -17,6 +17,7 @@ namespace LinkedList
 
 		Node* createNode() const;
 		sf::Vector2i getNewNodePosition(Node* reference_node) const;
+		void removeNodeAtHead();
 
 	public:
 		SingleLinkedList();
@@ -30,5 +31,6 @@ namespace LinkedList
 		void updateNodePosition();
 
 		bool processNodeCollision() const;
+		void removeAllNodes();
 	};
 }
