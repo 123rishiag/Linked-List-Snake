@@ -21,6 +21,9 @@ namespace Player
 		const float movement_frame_duration = 0.1f;
 		float elapsed_duration;
 
+		const float restart_duration = 2.f;
+		float restart_counter;
+
 		SnakeState current_snake_state;
 		Direction current_snake_direction;
 
