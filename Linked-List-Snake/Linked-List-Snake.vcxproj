@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\Element\Obstacle.cpp" />
     <ClCompile Include="source\Level\LevelController.cpp" />
     <ClCompile Include="source\Level\LevelModel.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
@@ -163,6 +164,8 @@
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="header\Element\ElementData.h" />
+    <ClInclude Include="header\Element\Obstacle.h" />
     <ClInclude Include="header\Level\LevelController.h" />
     <ClInclude Include="header\Level\LevelModel.h" />
     <ClInclude Include="header\Level\LevelNumber.h" />
