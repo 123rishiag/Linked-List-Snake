@@ -1,4 +1,6 @@
 #pragma once
+#include "../header/Element/ElementData.h"
+#include<vector>
 
 namespace Level
 {
