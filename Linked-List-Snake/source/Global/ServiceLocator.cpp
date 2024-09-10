@@ -6,6 +6,7 @@ namespace Global
 	using namespace Graphics;
 	using namespace Event;
 	using namespace Time;
+	using namespace Element;
 	using namespace Level;
 	using namespace Player;
 	using namespace Sound;
@@ -17,6 +18,7 @@ namespace Global
 		graphic_service = nullptr;
 		event_service = nullptr;
 		time_service = nullptr;
+		element_service = nullptr;
 		level_service = nullptr;
 		player_service = nullptr;
 		sound_service = nullptr;
@@ -32,6 +34,7 @@ namespace Global
 		graphic_service = new GraphicService();
 		event_service = new EventService();
 		time_service = new TimeService();
+		element_service = new ElementService();
 		level_service = new LevelService();
 		player_service = new PlayerService();
 		sound_service = new SoundService();
@@ -43,6 +46,7 @@ namespace Global
 		graphic_service->initialize();
 		event_service->initialize();
 		time_service->initialize();
+		element_service->initialize();
 		level_service->initialize();
 		player_service->initialize();
 		sound_service->initialize();
@@ -56,6 +60,7 @@ namespace Global
 		time_service->update();
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			element_service->update();
 			level_service->update();
 			player_service->update();
 		}
@@ -70,6 +75,7 @@ namespace Global
 		// time_service no render
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
+			element_service->render();
 			level_service->render();
 			player_service->render();
 		}
@@ -82,6 +88,7 @@ namespace Global
 		delete(graphic_service);
 		delete(event_service);
 		delete(time_service);
+		delete(element_service);
 		delete(level_service);
 		delete(player_service);
 		delete(sound_service);
@@ -97,6 +104,7 @@ namespace Global
 	GraphicService* ServiceLocator::getGraphicService() { return graphic_service; }
 	EventService* ServiceLocator::getEventService() { return event_service; }
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
+	ElementService* ServiceLocator::getElementService() { return element_service; }
 	LevelService* ServiceLocator::getLevelService() { return level_service; }
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	SoundService* ServiceLocator::getSoundService() { return sound_service; }

@@ -4,6 +4,8 @@
 
 namespace Level
 {
+	using namespace Element;
+
 	LevelController::LevelController()
 	{
 		level_view = new LevelView();
@@ -39,6 +41,11 @@ namespace Level
 	float LevelController::getCellHeight() const
 	{
 		return level_model->getCellHeight();
+	}
+
+	const std::vector<ElementData>& LevelController::getElementDataList(int level_to_load) const
+	{
+		return level_model->getElementDataList(level_to_load);
 	}
 
 	void LevelController::destroy()

@@ -22,5 +22,7 @@ namespace Level
 
 		float getCellWidth() const;
 		float getCellHeight() const;
+
+		const std::vector<Element::ElementData>& getElementDataList(int level_to_load) const;
 	};
 }
