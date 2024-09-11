@@ -1,6 +1,7 @@
 #pragma once
 #include<SFML/Graphics.hpp>
 #include "../header/LinkedList/SingleLinkedList.h"
+#include<vector>
 
 namespace Player
 {
@@ -60,5 +61,7 @@ namespace Player
 
 		SnakeState getSnakeState() const;
 		void setSnakeState(SnakeState state);
+
+		std::vector<sf::Vector2i> getCurrentSnakePositionList() const;
 	};
 }
