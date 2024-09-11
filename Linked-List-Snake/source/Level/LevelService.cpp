@@ -42,6 +42,11 @@ namespace Level
 		ServiceLocator::getInstance()->getElementService()->spawnElements(element_data_list, cell_width, cell_height);
 	}
 
+	void LevelService::spawnFood()
+	{
+		ServiceLocator::getInstance()->getFoodService()->startFoodSpawning();
+	}
+
 	void LevelService::spawnPlayer()
 	{
 		ServiceLocator::getInstance()->getPlayerService()->spawnPlayer();
@@ -51,6 +56,7 @@ namespace Level
 	{
 		current_level = level_to_load;
 		spawnLevelElements(level_to_load);
+		spawnFood();
 		spawnPlayer();
 	}
 

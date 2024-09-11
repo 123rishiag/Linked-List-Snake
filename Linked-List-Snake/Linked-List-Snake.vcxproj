@@ -137,6 +137,7 @@
     <ClCompile Include="source\Element\ElementService.cpp" />
     <ClCompile Include="source\Element\Obstacle.cpp" />
     <ClCompile Include="source\Food\FoodItem.cpp" />
+    <ClCompile Include="source\Food\FoodService.cpp" />
     <ClCompile Include="source\Level\LevelController.cpp" />
     <ClCompile Include="source\Level\LevelModel.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="header\Element\ElementService.h" />
     <ClInclude Include="header\Element\Obstacle.h" />
     <ClInclude Include="header\Food\FoodItem.h" />
+    <ClInclude Include="header\Food\FoodService.h" />
     <ClInclude Include="header\Food\FoodType.h" />
     <ClInclude Include="header\Level\LevelController.h" />
     <ClInclude Include="header\Level\LevelModel.h" />

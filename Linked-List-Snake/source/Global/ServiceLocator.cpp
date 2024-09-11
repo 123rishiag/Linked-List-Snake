@@ -8,6 +8,7 @@ namespace Global
 	using namespace Time;
 	using namespace Level;
 	using namespace Element;
+	using namespace Food;
 	using namespace Player;
 	using namespace Sound;
 	using namespace UI;
@@ -20,6 +21,7 @@ namespace Global
 		time_service = nullptr;
 		level_service = nullptr;
 		element_service = nullptr;
+		food_service = nullptr;
 		player_service = nullptr;
 		sound_service = nullptr;
 		ui_service = nullptr;
@@ -36,6 +38,7 @@ namespace Global
 		time_service = new TimeService();
 		level_service = new LevelService();
 		element_service = new ElementService();
+		food_service = new FoodService();
 		player_service = new PlayerService();
 		sound_service = new SoundService();
 		ui_service = new UIService();
@@ -48,6 +51,7 @@ namespace Global
 		time_service->initialize();
 		level_service->initialize();
 		element_service->initialize();
+		food_service->initialize();
 		player_service->initialize();
 		sound_service->initialize();
 		ui_service->initialize();
@@ -62,6 +66,7 @@ namespace Global
 		{
 			level_service->update();
 			element_service->update();
+			food_service->update();
 			player_service->update();
 		}
 		// sound_service no update
@@ -77,6 +82,7 @@ namespace Global
 		{
 			level_service->render();
 			element_service->render();
+			food_service->render();
 			player_service->render();
 		}
 		// sound_service no render
@@ -90,6 +96,7 @@ namespace Global
 		delete(time_service);
 		delete(level_service);
 		delete(element_service);
+		delete(food_service);
 		delete(player_service);
 		delete(sound_service);
 		delete(ui_service);
@@ -106,6 +113,7 @@ namespace Global
 	TimeService* ServiceLocator::getTimeService() { return time_service; }
 	LevelService* ServiceLocator::getLevelService() { return level_service; }
 	ElementService* ServiceLocator::getElementService() { return element_service; }
+	FoodService* ServiceLocator::getFoodService() { return food_service; }
 	PlayerService* ServiceLocator::getPlayerService() { return player_service; }
 	SoundService* ServiceLocator::getSoundService() { return sound_service; }
 	UIService* ServiceLocator::getUIService() { return ui_service; }
