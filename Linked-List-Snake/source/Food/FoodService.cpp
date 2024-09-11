@@ -73,21 +73,6 @@ namespace Food
 		}
 	}
 
-	void FoodService::startFoodSpawning()
-	{
-		current_spawning_status = FoodSpawningStatus::ACTIVE;
-
-		cell_width = ServiceLocator::getInstance()->getLevelService()->getCellWidth();
-		cell_height = ServiceLocator::getInstance()->getLevelService()->getCellHeight();
-	}
-
-	void FoodService::stopFoodSpawning()
-	{
-		current_spawning_status = FoodSpawningStatus::IN_ACTIVE;
-		destroyFood();
-		reset();
-	}
-
 	void FoodService::updateElapsedDuration()
 	{
 		elapsed_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
@@ -129,6 +114,32 @@ namespace Food
 				return false;
 		}
 		return true;
+	}
+
+	bool FoodService::processFoodCollision(LinkedList::Node* head_node, FoodType& out_food_type) const
+	{
+		if (current_food_item && current_food_item->getFoodPosition() == head_node->body_part.getPosition())
+		{
+			out_food_type = current_food_item->getFoodType();
+			return true;
+		}
+
+		return false;
+	}
+
+	void FoodService::startFoodSpawning()
+	{
+		current_spawning_status = FoodSpawningStatus::ACTIVE;
+
+		cell_width = ServiceLocator::getInstance()->getLevelService()->getCellWidth();
+		cell_height = ServiceLocator::getInstance()->getLevelService()->getCellHeight();
+	}
+
+	void FoodService::stopFoodSpawning()
+	{
+		current_spawning_status = FoodSpawningStatus::IN_ACTIVE;
+		destroyFood();
+		reset();
 	}
 
 	void FoodService::reset()
