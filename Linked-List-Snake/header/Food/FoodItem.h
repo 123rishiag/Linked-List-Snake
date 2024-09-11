@@ -19,8 +19,8 @@ namespace Food
         FoodType food_type;
 
         void initializeFoodImage();
-        sf::String getFoodTexturePath();
-        sf::Vector2f getFoodImagePosition();
+        sf::String getFoodTexturePath() const;
+        sf::Vector2f getFoodImagePosition() const;
         void destroy();
 
     public:
@@ -33,6 +33,6 @@ namespace Food
         void update();
         void render();
 
-        FoodType getFoodType();
+        FoodType getFoodType() const;
     };
 }

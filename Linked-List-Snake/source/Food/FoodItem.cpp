@@ -49,7 +49,7 @@ namespace Food
 		food_image->render();
 	}
 
-	sf::String FoodItem::getFoodTexturePath()
+	sf::String FoodItem::getFoodTexturePath() const
 	{
 		switch (food_type)
 		{
@@ -79,7 +79,7 @@ namespace Food
 		}
 	}
 
-	sf::Vector2f FoodItem::getFoodImagePosition()
+	sf::Vector2f FoodItem::getFoodImagePosition() const
 	{
 		float screen_position_x = LevelView::border_offset_left + (cell_width * grid_position.x);
 		float screen_position_y = LevelView::border_offset_top + (cell_height * grid_position.y);
@@ -87,7 +87,7 @@ namespace Food
 		return sf::Vector2f(screen_position_x, screen_position_y);
 	}
 
-	FoodType FoodItem::getFoodType()
+	FoodType FoodItem::getFoodType() const
 	{
 		return food_type;
 	}
