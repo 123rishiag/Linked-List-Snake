@@ -153,6 +153,11 @@ namespace Player
 		current_snake_state = state;
 	}
 
+	std::vector<sf::Vector2i> SnakeController::getCurrentSnakePositionList() const
+	{
+		return single_linked_list->getNodesPositionList();
+	}
+
 	void SnakeController::reset() 
 	{
 		current_snake_state = SnakeState::ALIVE;

@@ -30,6 +30,14 @@ namespace Element
 		}
 	}
 
+	void ElementService::spawnObstacle(sf::Vector2i position, float cell_width, float cell_height)
+	{
+		Obstacle* obstacle = new Obstacle();
+
+		obstacle->initialize(position, cell_width, cell_height);
+		obstacle_list.push_back(obstacle);
+	}
+
 	const void ElementService::spawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height)
 	{
 		for (int i = 0; i < element_data_list.size(); i++)
@@ -43,11 +51,15 @@ namespace Element
 		}
 	}
 
-	void ElementService::spawnObstacle(sf::Vector2i position, float cell_width, float cell_height)
+	std::vector<sf::Vector2i> ElementService::getElementsPositionList() const
 	{
-		Obstacle* obstacle = new Obstacle();
+		std::vector<sf::Vector2i> elements_position_list;
 
-		obstacle->initialize(position, cell_width, cell_height);
-		obstacle_list.push_back(obstacle);
+		for (int i = 0; i < obstacle_list.size(); i++)
+		{
+			elements_position_list.push_back(obstacle_list[i]->getObstaclePosition());
+		}
+
+		return elements_position_list;
 	}
 }
