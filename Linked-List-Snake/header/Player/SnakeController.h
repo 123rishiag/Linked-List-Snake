@@ -44,6 +44,9 @@ namespace Player
 		void delayedUpdate();
 		void moveSnake();
 		void processSnakeCollision();
+		void processBodyCollision();
+		void processElementsCollision();
+		void processFoodCollision();
 		void handleRestart();
 		void reset();
 		void destroy();
