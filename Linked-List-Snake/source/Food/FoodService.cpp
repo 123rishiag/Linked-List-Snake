@@ -22,10 +22,19 @@ namespace Food
 		destroyFood();
 	}
 
-	void FoodService::initialize() { }
+	void FoodService::initialize() 
+	{
+		elapsed_duration = spawn_duration;
+	}
 
 	void FoodService::update()
 	{
+		if(current_spawning_status == FoodSpawningStatus::ACTIVE)
+		{
+			updateElapsedDuration();
+			handleFoodSpawning();
+		}
+
 		if (current_food_item) 
 			current_food_item->update();
 	}
@@ -54,11 +63,34 @@ namespace Food
 		return static_cast<FoodType>(distribution(random_engine));
 	}
 
+	void FoodService::handleFoodSpawning()
+	{
+		if (elapsed_duration >= spawn_duration)
+		{
+			destroyFood();
+			reset();
+			spawnFood();
+		}
+	}
+
 	void FoodService::startFoodSpawning()
 	{
+		current_spawning_status = FoodSpawningStatus::ACTIVE;
+
 		cell_width = ServiceLocator::getInstance()->getLevelService()->getCellWidth();
 		cell_height = ServiceLocator::getInstance()->getLevelService()->getCellHeight();
-		spawnFood();
+	}
+
+	void FoodService::stopFoodSpawning()
+	{
+		current_spawning_status = FoodSpawningStatus::IN_ACTIVE;
+		destroyFood();
+		reset();
+	}
+
+	void FoodService::updateElapsedDuration()
+	{
+		elapsed_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 	}
 
 	sf::Vector2i FoodService::getRandomPosition()
@@ -93,9 +125,15 @@ namespace Food
 	{
 		for (int i = 0; i < position_data.size(); i++)
 		{
-			if (food_position == position_data[i]) return false;
+			if (food_position == position_data[i]) 
+				return false;
 		}
 		return true;
+	}
+
+	void FoodService::reset()
+	{
+		elapsed_duration = 0.f;
 	}
 
 	void FoodService::destroyFood()
