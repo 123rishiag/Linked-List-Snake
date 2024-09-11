@@ -92,6 +92,11 @@ namespace Food
 		return food_type;
 	}
 
+	sf::Vector2i FoodItem::getFoodPosition() const
+	{
+		return grid_position;
+	}
+
 	void FoodItem::destroy()
 	{
 		delete (food_image);

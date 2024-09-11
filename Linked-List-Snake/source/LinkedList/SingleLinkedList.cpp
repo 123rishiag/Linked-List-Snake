@@ -150,6 +150,11 @@ namespace LinkedList
 		return nodes_position_list;
 	}
 
+	Node* SingleLinkedList::getHeadNode() const
+	{
+		return head_node;
+	}
+
 	void SingleLinkedList::removeAllNodes()
 	{
 		if (head_node == nullptr) return;
