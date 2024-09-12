@@ -26,6 +26,7 @@ namespace LinkedList
 
 		Node* createNode() const;
 		void initializeNode(Node* new_node, Node* reference_node, Operation operation);
+		void shiftNodesAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node);
 		sf::Vector2i getNewNodePosition(Node* reference_node, Operation operation) const;
 		void removeNodeAtHead();
 
@@ -38,6 +39,7 @@ namespace LinkedList
 
 		void insertNodeAtHead();
 		void insertNodeAtTail();
+		void insertNodeAtIndex(int index);
 		void updateNodeDirection(Player::Direction direction_to_set);
 		void updateNodePosition();
 
