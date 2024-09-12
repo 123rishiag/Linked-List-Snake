@@ -246,54 +246,6 @@ namespace LinkedList
 		return false;
 	}
 
-	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node, Operation operation) const
-	{
-		switch (operation)
-		{
-		case Operation::HEAD:
-			return reference_node->body_part.getNextPosition();
-		case Operation::TAIL:
-			return reference_node->body_part.getPrevPosition();
-		}
-
-		return default_position;
-	}
-
-	std::vector<sf::Vector2i> SingleLinkedList::getNodesPositionList() const
-	{
-		std::vector<sf::Vector2i> nodes_position_list;
-
-		Node* cur_node = head_node;
-
-		while (cur_node != nullptr)
-		{
-			nodes_position_list.push_back(cur_node->body_part.getPosition());
-			cur_node = cur_node->next;
-		}
-
-		return nodes_position_list;
-	}
-
-	Node* SingleLinkedList::getHeadNode() const
-	{
-		return head_node;
-	}
-
-	Direction SingleLinkedList::getReverseDirection(Direction reference_direction) const
-	{
-		switch (reference_direction)
-		{
-		case Direction::UP:
-			return Direction::DOWN;
-		case Direction::DOWN:
-			return Direction::UP;
-		case Direction::LEFT:
-			return Direction::RIGHT;
-		case Direction::RIGHT:
-			return Direction::LEFT;
-		}
-	}
-
 	Direction SingleLinkedList::reverse()
 	{
 		Node* cur_node = head_node;
@@ -433,5 +385,53 @@ namespace LinkedList
 		{
 			removeNodeAtHead();
 		}
+	}
+
+	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node, Operation operation) const
+	{
+		switch (operation)
+		{
+		case Operation::HEAD:
+			return reference_node->body_part.getNextPosition();
+		case Operation::TAIL:
+			return reference_node->body_part.getPrevPosition();
+		}
+
+		return default_position;
+	}
+
+	Direction SingleLinkedList::getReverseDirection(Direction reference_direction) const
+	{
+		switch (reference_direction)
+		{
+		case Direction::UP:
+			return Direction::DOWN;
+		case Direction::DOWN:
+			return Direction::UP;
+		case Direction::LEFT:
+			return Direction::RIGHT;
+		case Direction::RIGHT:
+			return Direction::LEFT;
+		}
+	}
+
+	std::vector<sf::Vector2i> SingleLinkedList::getNodesPositionList() const
+	{
+		std::vector<sf::Vector2i> nodes_position_list;
+
+		Node* cur_node = head_node;
+
+		while (cur_node != nullptr)
+		{
+			nodes_position_list.push_back(cur_node->body_part.getPosition());
+			cur_node = cur_node->next;
+		}
+
+		return nodes_position_list;
+	}
+
+	Node* SingleLinkedList::getHeadNode() const
+	{
+		return head_node;
 	}
 }

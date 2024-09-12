@@ -151,5 +151,6 @@ namespace Food
 	{
 		if (current_food_item)
 			delete(current_food_item);
+		current_food_item = nullptr;
 	}
 }
