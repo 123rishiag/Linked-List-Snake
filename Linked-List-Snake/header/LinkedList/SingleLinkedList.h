@@ -28,6 +28,7 @@ namespace LinkedList
 		void initializeNode(Node* new_node, Node* reference_node, Operation operation);
 		void shiftNodesAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node);
 		void shiftNodesAfterRemoval(Node* cur_node);
+		Node* findNodeAtIndex(int index) const;
 		int findMiddleNode() const;
 		sf::Vector2i getNewNodePosition(Node* reference_node, Operation operation) const;
 		void removeNodeAtHead();
@@ -53,6 +54,7 @@ namespace LinkedList
 		bool processNodeCollision() const;
 		std::vector<sf::Vector2i> getNodesPositionList() const;
 		Node* getHeadNode() const;
+		void removeHalfNodes();
 		void removeAllNodes();
 	};
 }
