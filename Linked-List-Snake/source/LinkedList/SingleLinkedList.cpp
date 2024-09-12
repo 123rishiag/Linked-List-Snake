@@ -99,15 +99,6 @@ namespace LinkedList
 		return default_position;
 	}
 
-	void SingleLinkedList::removeNodeAtHead()
-	{
-		Node* cur_node = head_node;
-		head_node = head_node->next;
-
-		cur_node->next = nullptr;
-		delete (cur_node);
-	}
-
 	void SingleLinkedList::insertNodeAtHead()
 	{
 		linked_list_size++;
@@ -250,6 +241,16 @@ namespace LinkedList
 	Node* SingleLinkedList::getHeadNode() const
 	{
 		return head_node;
+	}
+
+	void SingleLinkedList::removeNodeAtHead()
+	{
+		Node* cur_node = head_node;
+		head_node = head_node->next;
+
+		cur_node->next = nullptr;
+		delete (cur_node);
+		linked_list_size--;
 	}
 
 	void SingleLinkedList::removeAllNodes()
