@@ -12,6 +12,7 @@ namespace Player
 
 		sf::Vector2i grid_position;
 		Direction direction;
+		Direction previous_direction;
 
 		float bodypart_width;
 		float bodypart_height;
@@ -38,6 +39,8 @@ namespace Player
 
 		Direction getDirection() const;
 		void setDirection(Direction dir);
+
+		Direction getPreviousDirection() const;
 
 		sf::Vector2i getPosition() const;
 		void setPosition(sf::Vector2i position);

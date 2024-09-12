@@ -105,7 +105,13 @@ namespace Player
 
 	void BodyPart::setDirection(Direction dir)
 	{
+		previous_direction = direction;
 		direction = dir;
+	}
+
+	Direction BodyPart::getPreviousDirection() const
+	{
+		return previous_direction;
 	}
 
 	sf::Vector2i BodyPart::getPosition() const
