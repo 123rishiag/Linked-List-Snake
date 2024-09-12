@@ -122,19 +122,6 @@ namespace LinkedList
 		return midIndex;
 	}
 
-	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node, Operation operation) const
-	{
-		switch (operation)
-		{
-		case Operation::HEAD:
-			return reference_node->body_part.getNextPosition();
-		case Operation::TAIL:
-			return reference_node->body_part.getPrevPosition();
-		}
-
-		return default_position;
-	}
-
 	void SingleLinkedList::insertNodeAtHead()
 	{
 		linked_list_size++;
@@ -259,6 +246,19 @@ namespace LinkedList
 		return false;
 	}
 
+	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* reference_node, Operation operation) const
+	{
+		switch (operation)
+		{
+		case Operation::HEAD:
+			return reference_node->body_part.getNextPosition();
+		case Operation::TAIL:
+			return reference_node->body_part.getPrevPosition();
+		}
+
+		return default_position;
+	}
+
 	std::vector<sf::Vector2i> SingleLinkedList::getNodesPositionList() const
 	{
 		std::vector<sf::Vector2i> nodes_position_list;
@@ -277,6 +277,53 @@ namespace LinkedList
 	Node* SingleLinkedList::getHeadNode() const
 	{
 		return head_node;
+	}
+
+	Direction SingleLinkedList::getReverseDirection(Direction reference_direction) const
+	{
+		switch (reference_direction)
+		{
+		case Direction::UP:
+			return Direction::DOWN;
+		case Direction::DOWN:
+			return Direction::UP;
+		case Direction::LEFT:
+			return Direction::RIGHT;
+		case Direction::RIGHT:
+			return Direction::LEFT;
+		}
+	}
+
+	Direction SingleLinkedList::reverse()
+	{
+		Node* cur_node = head_node;
+		Node* prev_node = nullptr;
+		Node* next_node = nullptr;
+
+		while (cur_node != nullptr)
+		{
+			next_node = cur_node->next;
+			cur_node->next = prev_node;
+
+			prev_node = cur_node;
+			cur_node = next_node;
+		}
+
+		head_node = prev_node;
+
+		reverseNodeDirections();
+		return head_node->body_part.getDirection();
+	}
+
+	void SingleLinkedList::reverseNodeDirections()
+	{
+		Node* curr_node = head_node;
+
+		while (curr_node != nullptr)
+		{
+			curr_node->body_part.setDirection(getReverseDirection(curr_node->body_part.getPreviousDirection()));
+			curr_node = curr_node->next;
+		}
 	}
 
 	void SingleLinkedList::removeNodeAtHead()
