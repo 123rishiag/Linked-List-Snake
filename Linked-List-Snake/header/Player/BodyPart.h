@@ -43,5 +43,6 @@ namespace Player
 		void setPosition(sf::Vector2i position);
 
 		sf::Vector2i getNextPosition() const;
+		sf::Vector2i getPrevPosition() const;
 	};
 }
