@@ -70,6 +70,11 @@ namespace Level
 		return level_controller->getCellHeight();
 	}
 
+	LevelNumber LevelService::getCurrentLevel() const
+	{
+		return current_level;
+	}
+
 	void LevelService::destroy()
 	{
 		delete(level_controller);
