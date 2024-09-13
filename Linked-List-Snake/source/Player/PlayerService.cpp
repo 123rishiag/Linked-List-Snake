@@ -43,6 +43,21 @@ namespace Player
 	{
 		return snake_controller->getCurrentSnakePositionList();
 	}
+		
+	int PlayerService::getPlayerScore() const
+	{
+		return snake_controller->getPlayerScore();
+	}
+
+	TimeComplexity PlayerService::getTimeComplexity() const
+	{
+		return snake_controller->getTimeComplexity();
+	}
+
+	LinkedListOperations PlayerService::getLastOperation() const
+	{
+		return snake_controller->getLastOperation();
+	}
 
 	void PlayerService::destroy()
 	{
