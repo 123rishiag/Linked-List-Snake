@@ -3,9 +3,9 @@
 
 namespace LinkedListLib
 {
-	namespace SingleLinked
+	namespace DoubleLinked
 	{
-		class SingleLinkedList : public LinkedList
+		class DoubleLinkedList : public LinkedList
 		{
 		protected:
 			virtual Node* createNode() override;
@@ -13,8 +13,9 @@ namespace LinkedListLib
 			void shiftNodesAfterRemoval(Node* cur_node);
 
 		public:
-			SingleLinkedList();
-			~SingleLinkedList();
+			DoubleLinkedList();
+			~DoubleLinkedList();
+
 
 			void insertNodeAtTail() override;
 			void insertNodeAtHead() override;
