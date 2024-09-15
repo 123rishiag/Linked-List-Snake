@@ -1,6 +1,6 @@
 #pragma once
 #include<SFML/Graphics.hpp>
-#include "../header/LinkedList/SingleLinkedList.h"
+#include "../header/LinkedListLib/SingleLinked/SingleLinkedList.h"
 #include "../header/Food/FoodType.h"
 #include<vector>
 
@@ -59,7 +59,7 @@ namespace Player
 		TimeComplexity time_complexity;
 		LinkedListOperations last_linked_list_operation;
 
-		LinkedList::SingleLinkedList* single_linked_list;
+		LinkedListLib::SingleLinked::SingleLinkedList* single_linked_list;
 
 		void createLinkedList();
 		void processPlayerInput();

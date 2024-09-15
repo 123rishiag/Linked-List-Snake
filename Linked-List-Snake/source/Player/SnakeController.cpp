@@ -11,7 +11,7 @@ namespace Player
 	using namespace Event;
 	using namespace Element;
 	using namespace Food;
-	using namespace LinkedList;
+	using namespace LinkedListLib::SingleLinked;
 	using namespace Sound;
 
 	SnakeController::SnakeController() 

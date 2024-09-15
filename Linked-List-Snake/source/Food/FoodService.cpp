@@ -116,7 +116,7 @@ namespace Food
 		return true;
 	}
 
-	bool FoodService::processFoodCollision(LinkedList::Node* head_node, FoodType& out_food_type) const
+	bool FoodService::processFoodCollision(LinkedListLib::Node* head_node, FoodType& out_food_type) const
 	{
 		if (current_food_item && current_food_item->getFoodPosition() == head_node->body_part.getPosition())
 		{
