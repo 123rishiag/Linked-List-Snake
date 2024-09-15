@@ -5,7 +5,7 @@
 #include "../header/Event/EventService.h"
 #include "../header/Global/Config.h"
 #include "../header/Global/ServiceLocator.h"
-#include "../header/Level/LevelNumber.h"
+#include "../header/Level/LevelConfig.h"
 
 namespace UI
 {
