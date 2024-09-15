@@ -225,7 +225,8 @@ namespace LinkedListLib
 
 		void SingleLinkedList::removeHalfNodes()
 		{
-			if (linked_list_size <= 1) return;
+			if (linked_list_size <= 1) 
+				return;
 			int half_length = linked_list_size / 2;
 			int new_tail_index = half_length - 1;
 
