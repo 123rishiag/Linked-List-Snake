@@ -1,4 +1,5 @@
 #include "../header/LinkedListLib/SingleLinked/SingleLinkedList.h"
+#include "../header/LinkedListLib/SingleLinked/SingleNode.h"
 
 namespace LinkedListLib
 {
@@ -10,7 +11,7 @@ namespace LinkedListLib
 
 		Node* SingleLinkedList::createNode()
 		{
-			return new Node();
+			return new SingleNode();
 		}
 
 		void SingleLinkedList::shiftNodesAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node)
