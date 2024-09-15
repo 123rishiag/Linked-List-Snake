@@ -179,10 +179,12 @@
     <ClInclude Include="header\Level\LevelNumber.h" />
     <ClInclude Include="header\Level\LevelService.h" />
     <ClInclude Include="header\Level\LevelView.h" />
+    <ClInclude Include="header\LinkedListLib\DoubleLinked\DoubleNode.h" />
+    <ClInclude Include="header\LinkedListLib\Node.h" />
+    <ClInclude Include="header\LinkedListLib\SingleLinked\SingleNode.h" />
     <ClInclude Include="header\LinkedList\SingleLinkedList.h" />
     <ClInclude Include="header\Player\BodyPart.h" />
     <ClInclude Include="header\Player\Direction.h" />
-    <ClInclude Include="header\LinkedList\Node.h" />
     <ClInclude Include="header\Player\PlayerService.h" />
     <ClInclude Include="header\Player\SnakeController.h" />
     <ClInclude Include="header\Time\TimeService.h" />
