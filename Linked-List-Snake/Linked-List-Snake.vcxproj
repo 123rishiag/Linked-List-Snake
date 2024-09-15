@@ -143,7 +143,7 @@
     <ClCompile Include="source\Level\LevelService.cpp" />
     <ClCompile Include="source\Level\LevelView.cpp" />
     <ClCompile Include="source\LinkedListLib\LinkedList.cpp" />
-    <ClCompile Include="source\LinkedList\SingleLinkedList.cpp" />
+    <ClCompile Include="source\LinkedListLib\SingleLinked\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
     <ClCompile Include="source\Player\SnakeController.cpp" />
@@ -184,7 +184,7 @@
     <ClInclude Include="header\LinkedListLib\LinkedList.h" />
     <ClInclude Include="header\LinkedListLib\Node.h" />
     <ClInclude Include="header\LinkedListLib\SingleLinked\SingleNode.h" />
-    <ClInclude Include="header\LinkedList\SingleLinkedList.h" />
+    <ClInclude Include="header\LinkedListLib\SingleLinked\SingleLinkedList.h" />
     <ClInclude Include="header\Player\BodyPart.h" />
     <ClInclude Include="header\Player\Direction.h" />
     <ClInclude Include="header\Player\PlayerService.h" />
