@@ -59,8 +59,16 @@ namespace Food
 
 	FoodType FoodService::getRandomFoodType()
 	{
-		std::uniform_int_distribution<int> distribution(0, FoodItem::number_of_foods - 1);
-		return static_cast<FoodType>(distribution(random_engine));
+		if (ServiceLocator::getInstance()->getPlayerService()->isSnakeSizeMinimum())
+		{
+			int randomValue = std::rand() % (FoodItem::number_of_foods - FoodItem::number_of_healthy_foods);
+			return static_cast<FoodType>(randomValue);
+		}
+		else
+		{
+			int randomValue = std::rand() % (FoodItem::number_of_foods);
+			return static_cast<FoodType>(randomValue);
+		}
 	}
 
 	void FoodService::handleFoodSpawning()

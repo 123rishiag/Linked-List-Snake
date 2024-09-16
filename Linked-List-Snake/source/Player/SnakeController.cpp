@@ -196,6 +196,13 @@ namespace Player
 			last_linked_list_operation = LinkedListOperations::INSERT_AT_MID;
 			break;
 
+		case FoodType::ALCOHOL:
+			//Reverse Direction
+			current_snake_direction = linked_list->reverse();
+			time_complexity = TimeComplexity::N;
+			last_linked_list_operation = LinkedListOperations::REVERSE_LIST;
+			break;
+
 		case FoodType::APPLE:
 			//Delete at HEAD
 			linked_list->removeNodeAtHead();
@@ -222,13 +229,6 @@ namespace Player
 			linked_list->removeHalfNodes();
 			time_complexity = TimeComplexity::N;
 			last_linked_list_operation = LinkedListOperations::DELETE_HALF_LIST;
-			break;
-
-		case FoodType::ALCOHOL:
-			//Reverse Direction
-			current_snake_direction = linked_list->reverse();
-			time_complexity = TimeComplexity::N;
-			last_linked_list_operation = LinkedListOperations::REVERSE_LIST;
 			break;
 		}
 	}
@@ -292,6 +292,13 @@ namespace Player
 	bool SnakeController::isSnakeDead() const
 	{
 		return current_snake_state == SnakeState::DEAD;
+	}
+
+	bool SnakeController::isSnakeSizeMinimum() const
+	{
+		if (linked_list->getLinkedListSize() <= minimum_snake_length)
+			return true;
+		return false;
 	}
 
 	void SnakeController::reset() 

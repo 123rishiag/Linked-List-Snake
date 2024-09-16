@@ -34,5 +34,6 @@ namespace Player
 		LinkedListOperations getLastOperation() const;
 
 		bool isPlayerDead() const;
+		bool isSnakeSizeMinimum() const;
 	};
 }
