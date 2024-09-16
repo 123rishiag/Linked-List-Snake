@@ -43,6 +43,7 @@ namespace Player
 	{
 	private:
 		const int initial_snake_length = 10;
+		const int minimum_snake_length = 3;
 		int player_score;
 
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
@@ -101,5 +102,6 @@ namespace Player
 		LinkedListOperations getLastOperation() const;
 
 		bool isSnakeDead() const;
+		bool isSnakeSizeMinimum() const;
 	};
 }
