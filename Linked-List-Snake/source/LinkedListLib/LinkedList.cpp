@@ -53,7 +53,8 @@ namespace LinkedListLib
 		int midIndex = 0;  // This will track the index of the middle node.
 
 		// Move fast pointer at 2x speed and slow pointer at 1x speed.
-		while (fast != nullptr && fast->next != nullptr) {
+		while (fast != nullptr && fast->next != nullptr) 
+		{
 			slow = slow->next;
 			fast = fast->next->next;
 			midIndex++;
