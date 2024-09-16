@@ -99,5 +99,7 @@ namespace Player
 		int getPlayerScore() const;
 		TimeComplexity getTimeComplexity() const;
 		LinkedListOperations getLastOperation() const;
+
+		bool isSnakeDead() const;
 	};
 }

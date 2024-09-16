@@ -289,6 +289,11 @@ namespace Player
 		return last_linked_list_operation;
 	}
 
+	bool SnakeController::isSnakeDead() const
+	{
+		return current_snake_state == SnakeState::DEAD;
+	}
+
 	void SnakeController::reset() 
 	{
 		current_snake_state = SnakeState::ALIVE;
